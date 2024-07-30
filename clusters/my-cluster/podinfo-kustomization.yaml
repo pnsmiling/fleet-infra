@@ -17,11 +17,11 @@ spec:
       apiVersion: autoscaling/v2
       kind: HorizontalPodAutoscaler
       metadata:
-        name: simple-app-03
+        name: simple-app
       spec:
         minReplicas: 3             
     target:
-      name: simple-app-03
+      name: simple-app
       kind: HorizontalPodAutoscaler
   targetNamespace: default
   timeout: 3m0s
