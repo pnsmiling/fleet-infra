@@ -6,7 +6,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 30m0s
-  path: ./kustomize
+  path: ./cluster
   prune: true
   retryInterval: 2m0s
   sourceRef:
@@ -19,7 +19,7 @@ spec:
       metadata:
         name: podinfo
       spec:
-        minReplicas: 0             
+        minReplicas: 1             
     target:
       name: podinfo
       kind: HorizontalPodAutoscaler
