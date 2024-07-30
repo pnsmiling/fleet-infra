@@ -19,7 +19,7 @@ spec:
       metadata:
         name: simple-app
       spec:
-        minReplicas: 3             
+        minReplicas: 2             
     target:
       name: simple-app
       kind: HorizontalPodAutoscaler
