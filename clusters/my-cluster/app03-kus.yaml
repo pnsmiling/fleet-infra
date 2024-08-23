@@ -1,0 +1,28 @@
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: helm-demo
+  namespace: flux-system
+spec:
+  interval: 30m0s
+  path: ./app
+  prune: true
+  retryInterval: 2m0s
+  sourceRef:
+    kind: GitRepository
+    name: helm-demo
+  patches:
+  - patch: |-
+      apiVersion: autoscaling/v2
+      kind: HorizontalPodAutoscaler
+      metadata:
+        name: demoapp
+      spec:
+        minReplicas: 1            
+    target:
+      name: demoapp
+      kind: HorizontalPodAutoscaler
+  targetNamespace: default
+  timeout: 3m0s
+  wait: true
